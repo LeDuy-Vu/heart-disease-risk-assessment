@@ -9,9 +9,7 @@ export default function Home() {
 
   const handleStartAssessment = () => {
     if (termsAccepted) {
-      // Generate session ID and navigate to assessment
-      const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      localStorage.setItem('current_session_id', sessionId);
+      // Navigate directly to simplified assessment (no session/database needed)
       navigate('/assessment');
     } else {
       setShowTerms(true);
