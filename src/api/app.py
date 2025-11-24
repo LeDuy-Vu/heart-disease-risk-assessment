@@ -63,9 +63,13 @@ class HierarchicalClassifier:
         # Get multi-class probabilities
         multi_proba = self.multiclass_model.predict_proba(X)
 
+        # Extract severity probabilities (classes 1-4) and renormalize
+        severity_proba = multi_proba[:, 1:5]  # Get classes 1-4
+        severity_sum = severity_proba.sum(axis=1, keepdims=True)
+        severity_proba_normalized = severity_proba / severity_sum  # Renormalize to sum to 1
+
         # Distribute disease probability across severity levels
-        for i in range(1, 5):
-            final_proba[:, i] = disease_prob * multi_proba[:, i]
+        final_proba[:, 1:5] = disease_prob.reshape(-1, 1) * severity_proba_normalized
 
         return final_proba
 
