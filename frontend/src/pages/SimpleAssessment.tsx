@@ -109,9 +109,9 @@ export default function SimpleAssessment() {
         {/* Header */}
         <div className="bg-white rounded-xl shadow-md p-6 mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <Heart className="w-10 h-10 text-blue-600" />
+            {/* <Heart className="w-10 h-10 text-blue-600" /> */}
             <div>
-              <h1 className="text-3xl font-bold">Heart Disease Risk Assessment</h1>
+              <h1 className="text-2xl font-bold">Heart Disease Risk Assessment</h1>
               <p className="text-gray-600">Complete the form below to get your risk assessment</p>
             </div>
           </div>
